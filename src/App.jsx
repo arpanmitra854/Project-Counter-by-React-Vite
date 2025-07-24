@@ -9,14 +9,24 @@ function App() {
 
   //let counter = 0;
   let addValue = () => {
-    counter++;
-    setCounter(counter);
+    if(counter >= 20) {
+      alert("Value can't be greater than 20");
+      setCounter(20);
+    }else{
+      counter++;
+      setCounter(counter);  
+    }
     console.log("Clicked", Math.random());
   }
 
   let removeValue = () => {
-    counter--;
-    setCounter(counter);
+    if(counter <= 0) {
+      setCounter(0);
+      alert("Value can't be lesser than 0");
+    }else{
+      counter--;
+      setCounter(counter);
+    }
     console.log("Clicked", Math.random());
   }
 
@@ -27,7 +37,7 @@ function App() {
 
       <button onClick={addValue}>Increase Value</button>
       <br />
-      <br />
+      <br /> 
       <button onClick={removeValue}>Decrease Value</button>
     </>
   )
